@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\3-2-Projects\\Ahmed Osama\\Alghorithms\\N-Puzzle\\N-Puzzle\\N-Puzzle.csproj": {}
+    "C:\\Users\\Ahmed osama\\Documents\\GitHub\\Alghorithms-N-Puzzle\\N-Puzzle\\N-Puzzle.csproj": {}
   },
   "projects": {
-    "F:\\3-2-Projects\\Ahmed Osama\\Alghorithms\\N-Puzzle\\N-Puzzle\\N-Puzzle.csproj": {
+    "C:\\Users\\Ahmed osama\\Documents\\GitHub\\Alghorithms-N-Puzzle\\N-Puzzle\\N-Puzzle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\3-2-Projects\\Ahmed Osama\\Alghorithms\\N-Puzzle\\N-Puzzle\\N-Puzzle.csproj",
+        "projectUniqueName": "C:\\Users\\Ahmed osama\\Documents\\GitHub\\Alghorithms-N-Puzzle\\N-Puzzle\\N-Puzzle.csproj",
         "projectName": "N-Puzzle",
-        "projectPath": "F:\\3-2-Projects\\Ahmed Osama\\Alghorithms\\N-Puzzle\\N-Puzzle\\N-Puzzle.csproj",
+        "projectPath": "C:\\Users\\Ahmed osama\\Documents\\GitHub\\Alghorithms-N-Puzzle\\N-Puzzle\\N-Puzzle.csproj",
         "packagesPath": "C:\\Users\\Ahmed osama\\.nuget\\packages\\",
-        "outputPath": "F:\\3-2-Projects\\Ahmed Osama\\Alghorithms\\N-Puzzle\\N-Puzzle\\obj\\",
+        "outputPath": "C:\\Users\\Ahmed osama\\Documents\\GitHub\\Alghorithms-N-Puzzle\\N-Puzzle\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ahmed osama\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -10,7 +10,7 @@ namespace N_Puzzle
         {
 
             ////0->14    15->23
-            int file_path = 0;
+            int file_path = 14;
             string[] Array_Of_Path = {
                 @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\8 Puzzle (1).txt",
                 @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\8 Puzzle (2).txt",
