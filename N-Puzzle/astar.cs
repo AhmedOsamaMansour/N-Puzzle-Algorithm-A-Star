@@ -12,7 +12,7 @@ namespace N_Puzzle
         Priority_Queue pqueue;
         bool Is_Hamming_OR_Manhatten;
         bool Compare_With_Parient;
-        HashSet<string> Visited = new HashSet<string>();
+        HashSet<int> Visited = new HashSet<int>();
         public static int[] ONE_D_Matrix(int[,] Two_D_Puzzle, int size)
         {
             int length = (size) * (size);

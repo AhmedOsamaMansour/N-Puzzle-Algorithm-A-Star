@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace N_Puzzle
@@ -16,7 +17,8 @@ namespace N_Puzzle
         public int H_Of_X; // cost based on Manhatten or Hamming
         public int cost;
         public int size;
-        public string path;
+        public int path;
+
         public State(int[,] Temp,int old_Of_X,int old_Of_Y, int size)
         {
             this.size = size;
@@ -35,7 +37,10 @@ namespace N_Puzzle
             this.New_y = old_Of_Y;  
             //---------> Because it is the first initial state <---------
             this.G_Of_X = 0;
-            this.path = ConvertMatrixToString(Temp, size);
+            MD5 md5Hasher = MD5.Create();
+            var hashed = md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(ConvertMatrixToString(Temp, size)));
+            var ivalue = BitConverter.ToInt32(hashed, 0);
+            this.path = ivalue;
             this.parient = null;
         }
         public State (State new_P,int[,]Temp,int Old_G_Of_X,int old_Of_X,int old_Of_Y,int New_Of_x,int New_Of_y,int size)
@@ -55,7 +60,7 @@ namespace N_Puzzle
             int temp = this.Matrix[New_Of_x, New_Of_y];
             this.Matrix[New_Of_x, New_Of_y]=  this.Matrix[old_Of_X, old_Of_Y]; //0
             this.Matrix[old_Of_X, old_Of_Y] = temp;
-            this.path = ConvertMatrixToString(Matrix, size);
+            this.path = ConvertMatrixToString(Temp, size).GetHashCode();
             this.parient = new_P;
         }
         public int Total_Cost() {
