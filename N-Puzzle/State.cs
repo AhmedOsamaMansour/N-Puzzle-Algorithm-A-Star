@@ -48,8 +48,10 @@ namespace N_Puzzle
             this.size = size;
             this.G_Of_X = Old_G_Of_X + 1;
             this.Matrix = new int[size, size];
-            for (int start = 0;start<size;start++) {
-                for (int start2=0;start2<size;start2++) {
+            for (int start = 0; start < size; start++)
+            {
+                for (int start2 = 0; start2 < size; start2++)
+                {
                     this.Matrix[start, start2] = Temp[start, start2];
                 }
             }

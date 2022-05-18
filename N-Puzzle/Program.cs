@@ -8,9 +8,8 @@ namespace N_Puzzle
     {
         static void Main(string[] args)
         {
-
-            ////0->14    15->23
-            int file_path = 14;
+            int file_path =0;
+            Go:
             string[] Array_Of_Path = {
                 @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\8 Puzzle (1).txt",
                 @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\8 Puzzle (2).txt",
@@ -41,30 +40,10 @@ namespace N_Puzzle
                 @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Unsolvable puzzles\99 Puzzle - Unsolvable Case 1.txt",
                 @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Unsolvable puzzles\99 Puzzle - Unsolvable Case 2.txt",
                 @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Unsolvable puzzles\9999 Puzzle.txt" };
-            string[] Array_Of_SOL_Path = {
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\Solutions\8 Puzzle (1) - Sol.txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\Solutions\8 Puzzle (2) - Sol.txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\Solutions\8 Puzzle (3) - Sol.txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\Solutions\15 Puzzle (1) - Sol.txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\Solutions\24 Puzzle 1 (Sol).txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\Solutions\24 Puzzle 2 (Sol).txt",
-
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Solvable puzzles\Manhattan & Hamming\Solutions\50 Puzzle (Sol).txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Solvable puzzles\Manhattan & Hamming\Solutions\99 Puzzle - 1.txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Solvable puzzles\Manhattan & Hamming\Solutions\99 Puzzle - 2.txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Solvable puzzles\Manhattan & Hamming\Solutions\9999 Puzzle.txt",
-
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Solvable puzzles\Manhattan Only\Solutions\15 Puzzle 1 (Sol).txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Solvable puzzles\Manhattan Only\Solutions\15 Puzzle 3 (Sol).txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Solvable puzzles\Manhattan Only\Solutions\15 Puzzle 4 (Sol).txt",
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\Solvable puzzles\Manhattan Only\Solutions\15 Puzzle 5 (Sol).txt",
-
-                @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Complete\Complete Test\V. Large test case\TEST Sol.txt"};
             // @ reduce double //
             FileStream f = new FileStream(Array_Of_Path[file_path], FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(f);
             int size = int.Parse(sr.ReadLine());
-            //Console.WriteLine(size);
             int[,] Two_D_Puzzle = new int[size, size];
             int indexofZero_X = -1, indexofZero_Y = -1;
             string firstline = sr.ReadLine();
@@ -92,10 +71,6 @@ namespace N_Puzzle
             }
             sr.Close();
             f.Close();
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/
             Console.WriteLine("\t\t\t\t\t  -----------------------------------");
             Console.WriteLine("\t\t\t\t\t  |                                 |");
             Console.WriteLine("\t\t\t\t\t  | <<       N-Puzzle Game       >> |");
@@ -108,17 +83,13 @@ namespace N_Puzzle
             Console.WriteLine("\t\t\t\t\t  |                                 |");
             Console.WriteLine("\t\t\t\t\t  -----------------------------------");
             Console.WriteLine();
+        again:
             Console.WriteLine();
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/   
-                Console.WriteLine("1 - Solve Puzzle Using Hamming");
+            Console.WriteLine("1 - Solve Puzzle Using Hamming");
                 Console.WriteLine("2 - Solve Puzzle Using Manhatten");
                 Console.WriteLine("3 - Choose Another Puzzle");
                 Console.WriteLine("4 - If You Want To Close");
                 Console.WriteLine("************************************************************************************************************************");
-            again:
                 Console.WriteLine("Enter Option That You Want:");
                 int Option = int.Parse(Console.ReadLine());
                 switch (Option)
@@ -127,15 +98,17 @@ namespace N_Puzzle
                     //Hamming
                     // Is_Hamming_OR_Manhatten True
                     new astar(Two_D_Puzzle, size, true, indexofZero_X, indexofZero_Y);
+                    goto again;
                     break;
                     case 2:
                     //Manhatten
                     // Is_Hamming_OR_Manhatten false
                     new astar(Two_D_Puzzle, size, false, indexofZero_X, indexofZero_Y);
-                        break;
+                    goto again;
+                    break;
                     case 3:
                         file_path++;
-                        goto again;
+                        goto Go;
                         //Console.WriteLine(file_path);
                         break;
                     case 4:
@@ -145,10 +118,6 @@ namespace N_Puzzle
                         goto again;
                         //break;
                 }
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/
-            /***********************************************************************************************************************************************/
         }
     }
 }
