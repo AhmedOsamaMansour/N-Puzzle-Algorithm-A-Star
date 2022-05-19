@@ -35,17 +35,17 @@ namespace N_Puzzle
         {
             int Number_Of_inversions = 0;
             int spaceIndex = -1;
-            //compare from first cell to the pre last
             for (int i = 0; i < Matrix.Length - 1; i++)
             {
+                //find index of Zero
                 if (Matrix[i] == 0)
                 {
                     spaceIndex = i / length;
                     continue;
                 }
-                //compare with the cell after i cell till the last cell 
                 for (int j = i + 1; j < Matrix.Length; j++)
                 {
+                    //ignore Zero from adding
                     if (Matrix[j] == 0)
                     {
                         continue;
@@ -56,14 +56,17 @@ namespace N_Puzzle
                     }
                 }
             }
+            //if size is odd and num of inversions is even 
             if (length % 2 != 0 && Number_Of_inversions % 2 == 0)
             {
                 return true;
             }
+            //if size is even and num of inversions id odd and where zero place is in even place
             else if (length % 2 == 0 && Number_Of_inversions % 2 != 0 && spaceIndex % 2 == 0)
             {
                 return true;
             }
+            //if size is even and num of inversions id even and where zero place is in odd place
             else if (length % 2 == 0 && Number_Of_inversions % 2 == 0 && spaceIndex % 2 != 0)
             {
                 return true;
@@ -250,7 +253,6 @@ namespace N_Puzzle
                         }
                         if (new_Down_State.H_Of_X == 0)
                         {
-                            //Console.WriteLine("Number of Movements = " + new_Down_State.G_Of_X);
                             ShowSteps(new_Down_State);
                             return;
                         }
@@ -277,7 +279,6 @@ namespace N_Puzzle
                         }
                         if (new_Left_State.H_Of_X == 0)
                         {
-                            //Console.WriteLine("Number of Movements = " + new_Left_State.G_Of_X);
                             ShowSteps(new_Left_State);
                             return;
                         }
@@ -304,7 +305,6 @@ namespace N_Puzzle
                         }
                         if (New_Up_State.H_Of_X == 0)
                         {
-                            //Console.WriteLine("Number of Movements = " + New_Up_State.G_Of_X);
                             ShowSteps(New_Up_State);
                             return;
                         }
@@ -330,7 +330,6 @@ namespace N_Puzzle
                         }
                         if (new_Right_State.H_Of_X == 0)
                         {
-                            //Console.WriteLine("Number of Movements = " + new_Right_State.G_Of_X);
                             ShowSteps(new_Right_State);
                             return;
                         }
