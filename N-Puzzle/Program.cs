@@ -8,7 +8,7 @@ namespace N_Puzzle
     {
         static void Main(string[] args)
         {
-            int file_path =0;
+            int file_path =15;
             Go:
             string[] Array_Of_Path = {
                 @"F:\3-2-Projects\Ahmed Osama\Alghorithms\Project\Testcases\Sample\Sample Test\Solvable Puzzles\8 Puzzle (1).txt",
